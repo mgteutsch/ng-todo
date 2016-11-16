@@ -1,0 +1,19 @@
+{
+	"items":{
+		"item0": {
+			"task": "mow the lawn",
+			"isCompleted": true,
+			"assignedTo": "Zoe"
+		},
+		"item1": {
+			"task": "grade quizzes",
+			"isCompleted": false,
+			"assignedTo": "William"
+		},
+		"item2": {
+			"task": "take nap",
+			"isCompleted": false,
+			"assignedTo": "Zoe"
+		}
+	}
+}

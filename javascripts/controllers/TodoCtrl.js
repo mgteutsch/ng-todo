@@ -1,29 +1,37 @@
 "use strict";
 
-app.controller("TodoCtrl", function($scope){
+app.controller("TodoCtrl", function($scope, ItemFactory){ //needed to inject ItemFactory
 	$scope.welcome = "hello";
 	$scope.showListView = true;
 	$scope.newTask = {}; // empty object
-	$scope.items = [
-		{
-			id: 0,
-			task: "mow the lawn",
-			isCompleted: true,
-			assignedTo: "Zoe"
-		},
-		{
-			id: 1,
-			task: "grade quizzes",
-			isCompleted: false,
-			assignedTo: "William"
-		},
-		{
-			id: 2,
-			task: "take nap",
-			isCompleted: false,
-			assignedTo: "Zoe"
-		}
-	]
+	//**************************************
+	// $scope.items = [
+	// 	// {
+	// 	// 	id: 0,
+	// 	// 	task: "mow the lawn",
+	// 	// 	isCompleted: true,
+	// 	// 	assignedTo: "Zoe"
+	// 	// },
+	// 	// {
+	// 	// 	id: 1,
+	// 	// 	task: "grade quizzes",
+	// 	// 	isCompleted: false,
+	// 	// 	assignedTo: "William"
+	// 	// },
+	// 	// {
+	// 	// 	id: 2,
+	// 	// 	task: "take nap",
+	// 	// 	isCompleted: false,
+	// 	// 	assignedTo: "Zoe"
+	// 	// } 
+	// ]
+	//************************************** 
+	$scope.items = []; //-----> all that commented out stuff went to the Seed.json file
+
+	ItemFactory.getItemList().then(function(fbItems){
+		//console.log("Items from controller:", fbItems);
+		$scope.items = fbItems; //This returns all the database items!
+	})
 
 	$scope.allItems = function(){
 		console.log("You clicked 'All Items'");
