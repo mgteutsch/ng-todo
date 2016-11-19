@@ -27,12 +27,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right" ng-repeat="thingy in navItems">
-                <!-- <li><a href="#">New Item</a></li>
-                <li><a href="#">All Items</a></li>
-                <li><a href="#">Logout</a></li> let's use the ng-repeat-->
-                <li><a href="#">{{thingy.name}}</a></li> 
+                <li><a href="{{thingy.url}}">{{thingy.name}}</a></li> 
                 <!-- Remember, "thingy" matches "thingy" in ng-repeat. You could name it anything, so long as both match -->
-                <!--in app.js see $scope.navItems to see what it's looping through-->
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -49,10 +45,10 @@
 
 
 
-
+<!--The following is going to be parsed into item-list.html & item-new.html-->
 <!-- ************************************************************************** -->
-
 <!-- commenting out all of this... we are using angular-route now...
+    
     <div ng-controller="TodoCtrl">
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
@@ -160,7 +156,7 @@
         <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
-        <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"</script>
+        <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"></script>
         <!--Remember, any package that you install, there MUST be a script tag for it. On day 3, we did bower install angular-route (dash)(dahs)save, then created that new script tag directly above-->
         
         <!-- ORDER MATTERS HERE: app.js, AppConstants, AppConfig, factories, controllers in order of page-->
@@ -169,7 +165,7 @@
         <script src="/javascripts/AppConfig.js"></script>
         <script src="/javascripts/factories/ItemFactory.js"></script>
         <script src="/javascripts/controllers/NavCtrl.js"></script> <!-- nav bar comes before Todo functionality -->
-        <script src="/javascripts/controllers/TodoCtrl.js"></script>
+        <!-- <script src="/javascripts/controllers/TodoCtrl.js"></script> gone, now that we are using routing--> 
         <script src="/javascripts/controllers/ItemListCtrl.js"></script>
         <script src="/javascripts/controllers/ItemNewCtrl.js"></script>
 

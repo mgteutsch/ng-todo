@@ -1,32 +1,13 @@
+//no longer using, now that we are routing!
+
+/*
 "use strict";
 
 app.controller("TodoCtrl", function($scope, ItemFactory){ //needed to inject ItemFactory
 	$scope.welcome = "hello";
 	$scope.showListView = true;
-	$scope.newTask = {}; // empty object
-	//**************************************
-	// $scope.items = [
-	// 	// {
-	// 	// 	id: 0,
-	// 	// 	task: "mow the lawn",
-	// 	// 	isCompleted: true,
-	// 	// 	assignedTo: "Zoe"
-	// 	// },
-	// 	// {
-	// 	// 	id: 1,
-	// 	// 	task: "grade quizzes",
-	// 	// 	isCompleted: false,
-	// 	// 	assignedTo: "William"
-	// 	// },
-	// 	// {
-	// 	// 	id: 2,
-	// 	// 	task: "take nap",
-	// 	// 	isCompleted: false,
-	// 	// 	assignedTo: "Zoe"
-	// 	// } 
-	// ]
-	//************************************** 
-	$scope.items = []; //-----> all that commented out stuff went to the Seed.json file, so now we just have an empty array
+	$scope.newTask = {}; 
+	$scope.items = []; 
 
 	
 
@@ -40,16 +21,6 @@ app.controller("TodoCtrl", function($scope, ItemFactory){ //needed to inject Ite
 	getItems();
 
 
-
-	$scope.allItems = function(){
-		console.log("You clicked 'All Items'");
-		$scope.showListView = true;
-	}
-
-	$scope.newItem = function(){
-		console.log("You clicked 'New Item'");
-		$scope.showListView = false;
-	}
 
 	$scope.addNewItem = function() {
 		$scope.newTask.isCompleted = false;
@@ -71,3 +42,4 @@ app.controller("TodoCtrl", function($scope, ItemFactory){ //needed to inject Ite
 	}
 
 });
+*/
