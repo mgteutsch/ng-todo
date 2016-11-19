@@ -39,6 +39,20 @@
         </nav>
 
 
+
+<div class="row">
+    <h1>NG Todo</h1>
+    <div class="col-xs-offset-2 col xs-8" ng-view></div>
+</div>    
+
+
+
+
+
+
+<!-- ************************************************************************** -->
+
+<!-- commenting out all of this... we are using angular-route now...
     <div ng-controller="TodoCtrl">
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
@@ -67,8 +81,7 @@
                             
                             <button type="button" class="btn btn-primary btn-lg col-xs-2 " ng-click="addNewItem()">New Todo</button>
                         </form>
-
-
+-->
                         <!--Getting rid of this, 
                             taking care of it beneath the <h3> New Todo above!-->
                         <!-- <div class="col-xs-12 new-text-container">
@@ -81,8 +94,8 @@
                             <button type="button" class="btn btn-primary btn-lg col-xs-2 " id="add-todo-button">New Todo</button>
                         </div> -->
                         <!-- ************************************************ -->
-
-                </div>
+<!--
+                </div> 
                 
                 <div ng-show="showListView">
                     <div class="row">
@@ -91,23 +104,23 @@
                                 <div class="input-group">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default"><i class="fa fa-search"></i></button>
-                                    <!-- the <i> tag stuff is from font awesome ('fa') so we can have cool icons -->
+                                    the <i> tag stuff is from font awesome ('fa') so we can have cool icons
                                 </span>        
                                 <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
-                                <!-- span tag allows for the button and the input to sit side-by-side -->
+-->                    <!-- span tag allows for the button and the input to sit side-by-side -->
                                 <!-- allows us to search for tasks within the Incompleted Todo div below -->
-                                </div>
+<!--                                </div>
                             </div>
                         </div>
                     </div>
 
-
-                    <h3>Todo</h3>
+-->
+<!--                    <h3>Todo</h3> -->
                         <!-- <ul id="incomplete-tasks"></ul> -->
                         <!-- no need for the above ul anymore, let's use ng-repeat -->
-                        <div ng-repeat="item in items | filter: {isCompleted:false} | filter: searchText">
+<!--                        <div ng-repeat="item in items | filter: {isCompleted:false} | filter: searchText"> -->
                         <!-- the last filter is allowing us to use the searchText from a few lines above -->
-                            <div class="panel panel-default">    
+<!--                            <div class="panel panel-default">    
                                 <div class="panel-body">
                                     <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
                                     </div>
@@ -118,9 +131,9 @@
                             </div>    
                         </div>
 
-                    <h3>Completed</h3>
+                    <h3>Completed</h3> -->
                        <!-- <ul id="completed-tasks"></ul> -->
-                        <div ng-repeat="item in items | filter: {isCompleted:true}">
+<!--                        <div ng-repeat="item in items | filter: {isCompleted:true}">
                             <div class="panel panel-default">    
                                 <div class="panel-body">
                                     <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
@@ -134,14 +147,21 @@
 
                 </div>
             </div>
+-->
+<!--    </div> --> <!-- this closes the second "row" div right by the ng-controller="TodoCtrl" div --> 
+<!-- </div> --> <!-- this closes the ng-controller="TodoCtrl" div -->
 
-    </div> <!-- this closes the second "row" div right by the ng-controller="TodoCtrl" div --> 
-</div> <!-- this closes the ng-controller="TodoCtrl" div -->
+
+<!-- ************************************************************************** -->
+
+
         <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
         <!-- the above script came from the red button in firebase, where I got the app.constant info in js -->
         <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"</script>
+        <!--Remember, any package that you install, there MUST be a script tag for it. On day 3, we did bower install angular-route (dash)(dahs)save, then created that new script tag directly above-->
         
         <!-- ORDER MATTERS HERE: app.js, AppConstants, AppConfig, factories, controllers in order of page-->
         <script src="/javascripts/app.js"></script>
@@ -150,6 +170,8 @@
         <script src="/javascripts/factories/ItemFactory.js"></script>
         <script src="/javascripts/controllers/NavCtrl.js"></script> <!-- nav bar comes before Todo functionality -->
         <script src="/javascripts/controllers/TodoCtrl.js"></script>
+        <script src="/javascripts/controllers/ItemListCtrl.js"></script>
+        <script src="/javascripts/controllers/ItemNewCtrl.js"></script>
 
     </body>
 </html>
