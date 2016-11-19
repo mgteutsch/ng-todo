@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-xs-7">{{item.task}}</div>
                                     <div class="col-xs-1">{{item.assignedTo}}</div>
-                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o"></button></div>
+                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
                                 </div>
                             </div>    
                         </div>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="col-xs-7">{{item.task}}</div>
                                     <div class="col-xs-1">{{item.assignedTo}}</div>
-                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o"></button></div>
+                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
                                 </div>
                             </div>    
                         </div>    
@@ -137,11 +137,19 @@
 
     </div> <!-- this closes the second "row" div right by the ng-controller="TodoCtrl" div --> 
 </div> <!-- this closes the ng-controller="TodoCtrl" div -->
-
+        <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+        <!-- the above script came from the red button in firebase, where I got the app.constant info in js -->
         <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
+        
+        <!-- ORDER MATTERS HERE: app.js, AppConstants, AppConfig, factories, controllers in order of page-->
         <script src="/javascripts/app.js"></script>
+        <script src="/javascripts/AppConstants.js"></script>
+        <script src="/javascripts/AppConfig.js"></script>
+        <script src="/javascripts/factories/ItemFactory.js"></script>
+        <script src="/javascripts/controllers/NavCtrl.js"></script> <!-- nav bar comes before Todo functionality -->
+        <script src="/javascripts/controllers/TodoCtrl.js"></script>
 
     </body>
 </html>
