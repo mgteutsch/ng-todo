@@ -14,9 +14,11 @@
 <div ng-repeat="item in items | filter: {isCompleted:false} | filter: searchText">
     <div class="panel panel-default">    
         <div class="panel-body">
-            <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
+            <div class="col-xs-1"><input type="checkbox" name="" ng-model="item.isCompleted" ng-change="inputChange(item)">
             </div>
-            <div class="col-xs-7">{{item.task}}</div>
+            <!-- <div class="col-xs-7">{{item.task}}</div> -->
+            <!-- replacing this with the below so we can edit: -->
+            <div class="col-xs-9"><a href="#/items/view/{{item.id}}">{{item.task}}</a></div>
             <div class="col-xs-1">{{item.assignedTo}}</div>
             <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
         </div>
@@ -28,9 +30,11 @@
 <div ng-repeat="item in items | filter: {isCompleted:true}">
     <div class="panel panel-default">    
         <div class="panel-body">
-            <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
+            <div class="col-xs-1"><input type="checkbox" name="" ng-model="item.isCompleted" ng-change="inputChange(item)">
             </div>
-            <div class="col-xs-7">{{item.task}}</div>
+            <!-- <div class="col-xs-7">{{item.task}}</div> -->
+            <!-- replaced so we can do the edit functionality: -->
+            <div class="col-xs-9"><a href="#/items/view/{{item.id}}">{{item.task}}</a></div>
             <div class="col-xs-1">{{item.assignedTo}}</div>
             <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
         </div>
