@@ -1,14 +1,15 @@
 "use strict";
 
-app.controller("ItemListCtrl", function($scope, ItemFactory){
+app.controller("ItemListCtrl", function($scope, $rootScope, ItemFactory){
 
 	$scope.items = []; 
 
 	
 	let getItems = function(){
-		ItemFactory.getItemList().then(function(fbItems){
+		ItemFactory.getItemList($rootScope.user.uid).then(function(fbItems){
 			//console.log("Items from controller:", fbItems);
 			$scope.items = fbItems; //This returns all the database items!
+			//passing in the rootScope above allows us to grab the user uid and just pass through its items
 		});
 	};
 	

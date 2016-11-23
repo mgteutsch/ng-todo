@@ -2,9 +2,9 @@
 
 app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 
-	var getItemList = function(){
-		return $q((resolve, reject) => { //writing the function as modern notation
-			$http.get(`${FIREBASE_CONFIG.databaseURL}/items.json`) //this comes from the seeder json file imported into Firbase
+	var getItemList = function(userId){
+		return $q((resolve, reject) => { 
+			$http.get(`${FIREBASE_CONFIG.databaseURL}/items.json?orderBy="uid"&equalTo="${userId}"`)
 				.success(function(response){
 					let items = [];
 					Object.keys(response).forEach(function(key){
@@ -21,11 +21,13 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 
 	var postNewItem = function(newItem){
 		return $q((resolve, reject) => {
-			$http.post(`${FIREBASE_CONFIG.databaseURL}/items.json`, JSON.stringify({
-				assignedTo: newItem.assignedTo,
-				isCompleted: newItem.isCompleted,
-				task: newItem.task
-			})
+			$http.post(`${FIREBASE_CONFIG.databaseURL}/items.json`, 
+				JSON.stringify({
+					assignedTo: newItem.assignedTo,
+					isCompleted: newItem.isCompleted,
+					task: newItem.task,
+					uid: newItem.uid
+				})
 			)
 				.success(function(postResponse){
 					resolve(postResponse);
@@ -67,7 +69,8 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 			  JSON.stringify({
 				assignedTo: editItem.assignedTo,
 				isCompleted: editItem.isCompleted,
-				task: editItem.task
+				task: editItem.task,
+				uid: editItem.uid
 			})
 			)
 				.success(function(editResponse){
