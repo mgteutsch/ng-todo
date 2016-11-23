@@ -17,6 +17,13 @@ app.controller("AuthCtrl", function($scope, $location, $rootScope, AuthFactory, 
 		});
 	};
 
+	if($location.path() == "/logout"){ // if the url ($location.path()) is equal to the logout url, then:
+		AuthFactory.logout(); // AuthFactory.logout() means "in AuthFactory.js there is the 'logout' function... execute it here"
+		$rootScope.user = {}; //clears the user object
+		$location.url("/auth"); //puts the user back into the login url
+		//you could use any of the routes that you've already created in in AppConfig, 
+		//but obviously this one is the only one that makes sense, unless we create a new homepage item
+	}
 
 	$scope.setLoginContainer = function(){
 		$scope.loginContainer = true;
