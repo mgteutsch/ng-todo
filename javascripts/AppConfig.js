@@ -9,6 +9,10 @@ app.run(function(FIREBASE_CONFIG){
 //you cannot use $scope in .config: the DOM hasn't loaded yet
 app.config(function($routeProvider){
 	$routeProvider
+		.when('/auth',{ //another route for the URL
+			templateUrl: 'partials/auth.html',
+			controller: 'AuthCtrl'
+		})
 		.when('/items/list', {	//we are creating routes here... for the to-do list, the create new items
 			templateUrl: 'partials/item-list.html', //DO NOT CAPITALIZE ALL OF Url!!!!!!!!!
 			controller: 'ItemListCtrl'

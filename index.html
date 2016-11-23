@@ -44,113 +44,6 @@
 
 
 
-
-<!--The following is going to be parsed into item-list.html & item-new.html-->
-<!-- ************************************************************************** -->
-<!-- commenting out all of this... we are using angular-route now...
-    
-    <div ng-controller="TodoCtrl">
-        <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
-                <button class="col-xs-6 btn btn-success" ng-click="newItem()">New Item</button>
-                <button class="col-xs-6 btn btn-info" ng-click="allItems()">All Items</button>
-            </div>
-        </div>
-        
-        <div class="row">   
-    
-            <div class="col-xs-offset-2 col-xs-8">
-                <h1>NG Todo</h1>
-                <div ng-show="!showListView">
-                    <h3>New Todo</h3>
-                        <form>
-                            <div class="form-group">
-                                <label>Task Description</label>
-                                <input type="text" class="form-control" placeholder="New Todo Item" ng-model="newTask.task">
-                            </div>
-                            <form>
-                            
-                            <div class="form-group">
-                                <label>Assigned To</label>
-                                <input type="text" class="form-control" placeholder="New Todo Item" ng-model="newTask.assignedTo">    
-                            </div>
-                            
-                            <button type="button" class="btn btn-primary btn-lg col-xs-2 " ng-click="addNewItem()">New Todo</button>
-                        </form>
--->
-                        <!--Getting rid of this, 
-                            taking care of it beneath the <h3> New Todo above!-->
-                        <!-- <div class="col-xs-12 new-text-container">
-                            <div  class="col-xs-10 newtodo-input ">
-                                <input type="text" class="form-control" id="add-todo-text" placeholder="New Todo Item">
-                            </div>
-                            <div class="col-xs-2">
-                                
-                            </div>
-                            <button type="button" class="btn btn-primary btn-lg col-xs-2 " id="add-todo-button">New Todo</button>
-                        </div> -->
-                        <!-- ************************************************ -->
-<!--
-                </div> 
-                
-                <div ng-show="showListView">
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-xs-6 col-xs-offset-3">
-                                <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default"><i class="fa fa-search"></i></button>
-                                    the <i> tag stuff is from font awesome ('fa') so we can have cool icons
-                                </span>        
-                                <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText">
--->                    <!-- span tag allows for the button and the input to sit side-by-side -->
-                                <!-- allows us to search for tasks within the Incompleted Todo div below -->
-<!--                                </div>
-                            </div>
-                        </div>
-                    </div>
-
--->
-<!--                    <h3>Todo</h3> -->
-                        <!-- <ul id="incomplete-tasks"></ul> -->
-                        <!-- no need for the above ul anymore, let's use ng-repeat -->
-<!--                        <div ng-repeat="item in items | filter: {isCompleted:false} | filter: searchText"> -->
-                        <!-- the last filter is allowing us to use the searchText from a few lines above -->
-<!--                            <div class="panel panel-default">    
-                                <div class="panel-body">
-                                    <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
-                                    </div>
-                                    <div class="col-xs-7">{{item.task}}</div>
-                                    <div class="col-xs-1">{{item.assignedTo}}</div>
-                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
-                                </div>
-                            </div>    
-                        </div>
-
-                    <h3>Completed</h3> -->
-                       <!-- <ul id="completed-tasks"></ul> -->
-<!--                        <div ng-repeat="item in items | filter: {isCompleted:true}">
-                            <div class="panel panel-default">    
-                                <div class="panel-body">
-                                    <div class="col-xs-1"><input type="checkbox" name="" ng-checked="item.isCompleted">
-                                    </div>
-                                    <div class="col-xs-7">{{item.task}}</div>
-                                    <div class="col-xs-1">{{item.assignedTo}}</div>
-                                    <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div>
-                                </div>
-                            </div>    
-                        </div>    
-
-                </div>
-            </div>
--->
-<!--    </div> --> <!-- this closes the second "row" div right by the ng-controller="TodoCtrl" div --> 
-<!-- </div> --> <!-- this closes the ng-controller="TodoCtrl" div -->
-
-
-<!-- ************************************************************************** -->
-
-
         <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
         <!-- the above script came from the red button in firebase, where I got the app.constant info in js -->
         <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
@@ -163,9 +56,11 @@
         <script src="/javascripts/app.js"></script>
         <script src="/javascripts/AppConstants.js"></script>
         <script src="/javascripts/AppConfig.js"></script>
+        <script src="/javascripts/factories/AuthFactory.js"></script>
         <script src="/javascripts/factories/ItemFactory.js"></script>
-        <script src="/javascripts/controllers/NavCtrl.js"></script> <!-- nav bar comes before Todo functionality -->
-        <!-- <script src="/javascripts/controllers/TodoCtrl.js"></script> gone, now that we are using routing--> 
+        <script src="/javascripts/factories/UserFactory.js"></script>
+        <script src="/javascripts/controllers/AuthCtrl.js"></script>
+        <script src="/javascripts/controllers/NavCtrl.js"></script> 
         <script src="/javascripts/controllers/ItemListCtrl.js"></script>
         <script src="/javascripts/controllers/ItemNewCtrl.js"></script>
         <script src="/javascripts/controllers/ItemViewCtrl.js"></script>
